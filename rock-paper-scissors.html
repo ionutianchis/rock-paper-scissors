@@ -6,33 +6,60 @@
 </head>    
 <body>
 <script>
+
+let gameCount = 0
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
     let cChoice = ["rock", "paper", "scissors"]
     return cChoice[Math.floor(Math.random()* 3)];
 }
-const computerSelection = computerPlay();
-const playerSelection = prompt("What's your choice ?").toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
     if ( playerSelection == "rock" && computerSelection == "scissors") {
+        playerScore++;
+        gameCount++;
         return "You win, the computer has chosen scissors";
     } else if (playerSelection == "paper" && computerSelection == "rock") {
+        playerScore++;
+        gameCount++;
         return "You win, the computer has chosen rock";
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        playerScore++;
+        gameCount++;
         return "You win, the computer has chosen paper";
     } else if (playerSelection == computerSelection) {
+        gameCount++;
         return "It's a draw, you both chose the same";
     } else if (!(playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors")) {
         return "Invalid choice, try again";
     } else {
+        gameCount++;
+        computerScore++;
         return "You lost, the computer has chosen " + computerSelection;
+    } 
+}
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("What would you like to choose ?").toLowerCase();
+        const computerSelection = computerPlay();
+
+        console.log(playRound(playerSelection, computerSelection));
+
+        if (playerScore == computerScore && gameCount == 5) {
+            console.log("It's a tie!");
+        } else if (playerScore > computerScore && gameCount == 5) {
+            console.log("You have won the game by " + playerScore + " to " + computerScore);
+        } else if (playerScore < computerScore && gameCount == 5) {
+            console.log("The computer has won by " + computerScore + " to " + playerScore);
+        }
+
     }
 }
 
-console.log(playRound(playerSelection, computerSelection));
-
-
+game();
 </script>
-
 </body>
 </html>
