@@ -5,61 +5,99 @@
     <meta charset="UTF-8"/>
 </head>    
 <body>
+    <div id='score'></div>
+    <div id='roundRes'></div>
+    <div>
+        <button id="rock"> Rock </button> 
+        <button id="paper"> Paper </button> 
+        <button id="scissors"> Scissors </button> 
+    </div>
+    <div id='finalResult'></div>
 <script>
 
 let gameCount = 0
 let playerScore = 0;
 let computerScore = 0;
+let playerSelection;
 
 function computerPlay() {
     let cChoice = ["rock", "paper", "scissors"]
     return cChoice[Math.floor(Math.random()* 3)];
 }
 
+
 function playRound(playerSelection, computerSelection) {
     if ( playerSelection == "rock" && computerSelection == "scissors") {
+        roundRes.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
         playerScore++;
         gameCount++;
-        return "You win, the computer has chosen scissors";
     } else if (playerSelection == "paper" && computerSelection == "rock") {
+        roundRes.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
         playerScore++;
         gameCount++;
-        return "You win, the computer has chosen rock";
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        roundRes.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
         playerScore++;
         gameCount++;
-        return "You win, the computer has chosen paper";
     } else if (playerSelection == computerSelection) {
-        gameCount++;
-        return "It's a draw, you both chose the same";
-    } else if (!(playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors")) {
-        return "Invalid choice, try again";
+        roundRes.textContent = "It's a tie!"
     } else {
+        roundRes.textContent = `You lost! ${playerSelection} is beaten by ${computerSelection}`
         gameCount++;
         computerScore++;
-        return "You lost, the computer has chosen " + computerSelection;
     } 
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("What would you like to choose ?").toLowerCase();
-        const computerSelection = computerPlay();
-
-        console.log(playRound(playerSelection, computerSelection));
-
-        if (playerScore == computerScore && gameCount == 5) {
-            console.log("It's a tie!");
-        } else if (playerScore > computerScore && gameCount == 5) {
-            console.log("You have won the game by " + playerScore + " to " + computerScore);
+        score.textContent = `${playerScore} - ${computerScore}`;
+        if (playerScore > computerScore && gameCount == 5) {
+            finalResult.textContent = "Game over. You win ! Refresh to play again."
+            rockButton.disabled = true;
+            paperButton.disabled = true;
+            scissorsButton.disabled = true;
         } else if (playerScore < computerScore && gameCount == 5) {
-            console.log("The computer has won by " + computerScore + " to " + playerScore);
+            finalResult.textContent = "Game over. You lost ! Refresh to play again."
+            rockButton.disabled = true;
+            paperButton.disabled = true;
+            scissorsButton.disabled = true;
         }
-
-    }
+    
 }
 
-game();
+const score = document.getElementById("score")
+
+const roundRes = document.getElementById("roundRes")
+
+const rockButton = document.querySelector("#rock")
+
+
+rockButton.addEventListener('click', () => {
+    playerSelection = 'rock';
+    computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection)
+    game();
+})
+
+const paperButton = document.querySelector("#paper")
+
+paperButton.addEventListener('click', () => {
+    playerSelection = 'paper';
+    computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection)
+    game();
+})
+
+const scissorsButton = document.querySelector("#scissors")
+
+scissorsButton.addEventListener('click', () => {
+    playerSelection = 'scissors';
+    computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection)
+    game();
+})
+
+const finalResult = document.getElementById("finalResult")
+
 </script>
 </body>
 </html>
