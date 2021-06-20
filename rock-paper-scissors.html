@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="style.css">
 <head>
     <title>Rock papers scissors game</title>
     <meta charset="UTF-8"/>
 </head>    
 <body>
-    <div id='score'></div>
-    <div id='roundRes'></div>
-    <div>
-        <button id="rock"> Rock </button> 
-        <button id="paper"> Paper </button> 
-        <button id="scissors"> Scissors </button> 
+    <div id='center'>
+        <div id='score'></div>
+        <div id='roundRes'></div>
+    </div>
+    <div id='choice'>
+        <button id="rock"></button> 
+        <button id="paper"></button> 
+        <button id="scissors"></button> 
     </div>
     <div id='finalResult'></div>
+
+
 <script>
 
 let gameCount = 0
@@ -64,12 +69,11 @@ function game() {
     
 }
 
+
 const score = document.getElementById("score")
-
 const roundRes = document.getElementById("roundRes")
-
+const finalResult = document.getElementById("finalResult")
 const rockButton = document.querySelector("#rock")
-
 
 rockButton.addEventListener('click', () => {
     playerSelection = 'rock';
@@ -78,8 +82,8 @@ rockButton.addEventListener('click', () => {
     game();
 })
 
-const paperButton = document.querySelector("#paper")
 
+const paperButton = document.querySelector("#paper")
 paperButton.addEventListener('click', () => {
     playerSelection = 'paper';
     computerSelection = computerPlay();
@@ -87,8 +91,8 @@ paperButton.addEventListener('click', () => {
     game();
 })
 
-const scissorsButton = document.querySelector("#scissors")
 
+const scissorsButton = document.querySelector("#scissors")
 scissorsButton.addEventListener('click', () => {
     playerSelection = 'scissors';
     computerSelection = computerPlay();
@@ -96,7 +100,6 @@ scissorsButton.addEventListener('click', () => {
     game();
 })
 
-const finalResult = document.getElementById("finalResult")
 
 </script>
 </body>

@@ -1,0 +1,53 @@
+body {
+    background-color: grey;
+    color: rgba(255, 255, 255, 0.664);
+    font-family: helvetica;
+    font-size: 18px;
+}
+
+#choice {
+    text-align: center;
+    margin-top: 250px;
+    margin-right: 100px;
+}
+
+#center {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+#finalResult {
+    text-align: center;
+}
+
+#rock {
+    height: 200px;
+    width: 200px;
+    background-image: url("rock.png");
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    opacity: 0.5;
+}
+
+#paper {
+    height: 200px;
+    width: 200px;
+    background-image: url("paper.png");
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    opacity: 0.5;
+}
+
+#scissors {
+    height: 200px;
+    width: 200px;
+    background-image: url("scissors.png");
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    opacity: 0.5;
+}
