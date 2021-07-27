@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="style.css">
-<head>
-    <title>Rock papers scissors game</title>
-    <meta charset="UTF-8"/>
-</head>    
-<body>
-    <div id='center'>
-        <div id='score'></div>
-        <div id='roundRes'></div>
-    </div>
-    <div id='choice'>
-        <button id="rock"></button> 
-        <button id="paper"></button> 
-        <button id="scissors"></button> 
-    </div>
-    <div id='finalResult'></div>
-
-
-<script>
-
 let gameCount = 0
 let playerScore = 0;
 let computerScore = 0;
@@ -28,7 +6,7 @@ let playerSelection;
 function computerPlay() {
     let cChoice = ["rock", "paper", "scissors"]
     return cChoice[Math.floor(Math.random()* 3)];
-}
+};
 
 
 function playRound(playerSelection, computerSelection) {
@@ -50,8 +28,8 @@ function playRound(playerSelection, computerSelection) {
         roundRes.textContent = `You lost! ${playerSelection} is beaten by ${computerSelection}`
         gameCount++;
         computerScore++;
-    } 
-}
+    };
+};
 
 function game() {
         score.textContent = `${playerScore} - ${computerScore}`;
@@ -65,9 +43,9 @@ function game() {
             rockButton.disabled = true;
             paperButton.disabled = true;
             scissorsButton.disabled = true;
-        }
+        };
     
-}
+};
 
 
 const score = document.getElementById("score")
@@ -80,7 +58,7 @@ rockButton.addEventListener('click', () => {
     computerSelection = computerPlay();
     playRound(playerSelection, computerSelection)
     game();
-})
+});
 
 
 const paperButton = document.querySelector("#paper")
@@ -89,7 +67,7 @@ paperButton.addEventListener('click', () => {
     computerSelection = computerPlay();
     playRound(playerSelection, computerSelection)
     game();
-})
+});
 
 
 const scissorsButton = document.querySelector("#scissors")
@@ -98,9 +76,4 @@ scissorsButton.addEventListener('click', () => {
     computerSelection = computerPlay();
     playRound(playerSelection, computerSelection)
     game();
-})
-
-
-</script>
-</body>
-</html>
+});
