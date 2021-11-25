@@ -2,6 +2,7 @@ let gameCount = 0
 let playerScore = 0;
 let computerScore = 0;
 let playerSelection;
+const header_text = document.getElementById('header-container')
 
 function computerPlay() {
     let cChoice = ["rock", "paper", "scissors"]
@@ -32,6 +33,7 @@ function playRound(playerSelection, computerSelection) {
 };
 
 function game() {
+        header_text.textContent = ""
         score.textContent = `${playerScore} - ${computerScore}`;
         if (playerScore > computerScore && gameCount == 5) {
             finalResult.textContent = "Game over. You win ! Refresh to play again."
@@ -51,7 +53,10 @@ function game() {
 const score = document.getElementById("score")
 const roundRes = document.getElementById("roundRes")
 const finalResult = document.getElementById("finalResult")
-const rockButton = document.querySelector("#rock")
+const rockButton = document.getElementById("rock")
+const paperButton = document.getElementById('paper')
+const scissorsButton = document.getElementById('scissors')
+const git_btn = document.getElementById('git_btn')
 
 rockButton.addEventListener('click', () => {
     playerSelection = 'rock';
@@ -61,7 +66,6 @@ rockButton.addEventListener('click', () => {
 });
 
 
-const paperButton = document.querySelector("#paper")
 paperButton.addEventListener('click', () => {
     playerSelection = 'paper';
     computerSelection = computerPlay();
@@ -70,10 +74,14 @@ paperButton.addEventListener('click', () => {
 });
 
 
-const scissorsButton = document.querySelector("#scissors")
 scissorsButton.addEventListener('click', () => {
     playerSelection = 'scissors';
     computerSelection = computerPlay();
     playRound(playerSelection, computerSelection)
     game();
 });
+
+
+git_btn.addEventListener('click', () => {
+	window.open('https://github.com/Jonthejon10')
+})

@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="style.css">
-<head>
-    <title>Rock papers scissors game</title>
-    <meta charset="UTF-8"/>
-</head>    
+    <head>
+        <title>Rock papers scissors game</title>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    </head>    
 <body>
-    <div id='center'>
-        <div id='score'></div>
-        <div id='roundRes'></div>
-    </div>
-    <div id='choice'>
-        <button id="rock"></button> 
-        <button id="paper"></button> 
-        <button id="scissors"></button> 
-    </div>
-    <div id='finalResult'></div>
+    <header>
+        <div id="header-container">
+            <h1>Don't be shy, make your choice !</h1>
+        </div>
+    </header>
+    <main>
+        <div class='score-container'>
+            <div id='score'></div>
+            <div id='roundRes'></div>
+        </div>
+        <div id='choice' class='choice-container'>
+            <button id="rock" class='choice-btn rock'></button> 
+            <button id="paper" class='choice-btn paper'></button> 
+            <button id="scissors" class='choice-btn scissors'></button> 
+        </div>
+        <div id='finalResult' class='result-container'></div>
+    </main>    
 
+    <footer>
+        <p>© Jonthejon10, 2021</p>
+        <button class='github-button' id='git_btn'></button>
+    </footer>
 
 <script src = 'script.js'></script>
 
